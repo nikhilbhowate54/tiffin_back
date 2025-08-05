@@ -38,5 +38,13 @@ router.delete("/:id", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
+router.get("/", async (req, res) => {
+  try {
+    const foodList = await Food.find();
+    res.status(200).json(foodList);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 module.exports = router;

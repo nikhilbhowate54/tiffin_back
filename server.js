@@ -40,7 +40,7 @@ async function createDefaultAdmin() {
     if (!existingAdmin) {
       const hashedPassword = await bcrypt.hash("bhowate@1991", 10);
       await User.create({
-        name: "Admin",
+        name: "Admin",  
         email: "admin@tiffin.com",
         passwordHash: hashedPassword, // ✅ Match your User schema field
         role: "admin",
