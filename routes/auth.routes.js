@@ -5,7 +5,7 @@ const User = require("../models/user.model");
 const notificationModel = require("../models/notification.model");
 const router = express.Router();
 
-app.post('/auth/register', async (req, res) => {
+router.post('/auth/register', async (req, res) => {
   const { email, password } = req.body;
 
   try {
@@ -47,7 +47,7 @@ router.get("/notifications", async (req, res) => {
     res.status(500).json({ message: "Failed to fetch notifications" });
   }
 });
-// ✅ Optional: Mark as read
+//  Optional: Mark as read
 router.patch("/notifications/:id/read", async (req, res) => {
   try {
     const notification = await notificationModel.findByIdAndUpdate(
